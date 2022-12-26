@@ -1,6 +1,6 @@
 use std::env::args;
 use std::fs;
-use std::io::{BufRead, Write};
+use std::io::{BufRead, Write, Error};
 use std::path::Path;
 use regex::Regex;
 use walkdir::WalkDir;
@@ -8,8 +8,12 @@ use walkdir::WalkDir;
 fn copy_file(from: &Path, to: &str, patterns: &Vec<(Regex, String)>) {
     let file = match fs::read_to_string(from) {
         Err(a) => {
-            fs::copy(from, to).expect("Unable to copy");
-            return
+            let res = fs::copy(from, to);
+            match res {
+                Err(e) => eprintln!("{e}"),
+                Ok(v) => {}
+            }
+            return;
         },
         Ok(a) => a
     };

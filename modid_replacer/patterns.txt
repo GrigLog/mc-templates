@@ -1,3 +1,4 @@
-roughly_enough_trades  my_modid
-Roughly Enough Trades  My Modid
-griglog*ret  griglog*my_modid
+forge-fabric-kotlin  Roughly Enough Loot Tables 1.19 Double
+my_modid  roughly_enough_loot_tables
+My Modid  Roughly Enough Loot Tables
+MyModid  RoughlyEnoughLootTables
