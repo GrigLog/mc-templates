@@ -1,0 +1,3 @@
+roughly_enough_trades  my_modid
+Roughly Enough Trades  My Modid
+griglog*ret  griglog*my_modid
