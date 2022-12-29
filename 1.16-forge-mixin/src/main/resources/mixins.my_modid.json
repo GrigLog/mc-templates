@@ -1,0 +1,10 @@
+{
+  "required": true,
+  "minVersion": "0.8.3",
+  "package": "griglog.my_modid.mixins",
+  "refmap": "mixins.my_modid.refmap.json",
+  "compatibilityLevel": "JAVA_8",
+  "mixins": [],
+  "client": [],
+  "server": []
+}

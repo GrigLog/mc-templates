@@ -37,6 +37,15 @@ fn copy_file(from: &Path, to: &str, patterns: &Vec<(Regex, String)>) {
 
 
 fn main() {
+    let args: Vec<String> = args().collect();
+    if args.len() != 3 {
+        eprint!("This program requires 2 arguments:\n1)input directory;\n2)output directory NAME");
+        std::process::exit(1);
+    }
+    let base_path = Path::new(&args[1]);
+    let base_path_str = base_path.file_name().unwrap().to_str().unwrap();
+    let new_path_str = Path::new(&args[2]).to_str().unwrap();
+
     let mut patterns_path: Vec<(Regex, String)> = Vec::new();
     let mut patterns_file: Vec<(Regex, String)> = Vec::new();
     let pattern_string = std::fs::read_to_string("patterns.txt").unwrap();
@@ -49,11 +58,9 @@ fn main() {
         let to = line[space+2..].replace('*', ".");
         patterns_file.push((Regex::new(from).unwrap(), to));
     }
-    patterns_path.push((Regex::new("template").unwrap(), String::from("out")));
+    patterns_path.push((Regex::new(base_path_str).unwrap(), String::from(new_path_str)));
 
 
-    let args: Vec<String> = args().collect();
-    let base_path = Path::new(&args[1]); //"template"
     let base_path_abs = fs::canonicalize(base_path).unwrap();
     for entry in WalkDir::new(base_path).into_iter().filter_map(Result::ok) {
         let mut path = entry.path().to_str().unwrap().to_string();

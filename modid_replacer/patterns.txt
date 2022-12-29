@@ -1,4 +1,4 @@
-forge-fabric-kotlin  Roughly Enough Loot Tables 1.19 Double
-my_modid  roughly_enough_loot_tables
-My Modid  Roughly Enough Loot Tables
-MyModid  RoughlyEnoughLootTables
+griglog*my_modid  griglog*authlib_replacer
+my_modid  authlib_replacer
+MyModid  AuthlibReplacer
+My Modid  Authlib Replacer
